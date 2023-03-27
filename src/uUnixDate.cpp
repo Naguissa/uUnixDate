@@ -119,9 +119,9 @@ void uUnixDate::setDate(const int16_t Y, const int8_t M, const int8_t D, const i
     int32_t days = D - 1;
     int16_t i;
     for (i = 1; i < M; ++i) {
-        if (M == 2)  {
+        if (i == 2)  {
             days += (28 + UUNIXDATE_ISLEAP(Y));
-        } else if (M == 4 || M== 6 || M == 9 || M ==11) {
+        } else if (i == 4 || i== 6 || i == 9 || i ==11) {
             days += 30;
         } else {
             days += 31;
