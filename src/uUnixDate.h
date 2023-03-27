@@ -12,7 +12,7 @@
  * @see <a href="https://github.com/Naguissa/uUnixDate">https://github.com/Naguissa/uUnixDate</a>
  * @see <a href="https://www.foroelectro.net/librerias-arduino-ide-f29/uunixdate-libreria-arduino-para-manejar-fechas-y-u-t473.html">https://www.foroelectro.net/librerias-arduino-ide-f29/uunixdate-libreria-arduino-para-manejar-fechas-y-u-t473.html</a>
  * @see <a href="mailto:naguissa@foroelectro.net">naguissa@foroelectro.net</a>
- * @version 1.0.0
+ * @version 1.1.0
  */
 /** \file uRTCLib.h
  *   \brief uRTCLib header file
@@ -57,6 +57,7 @@
 			int8_t month();
 			int16_t year();
 			uint32_t timestamp();
+			int8_t dow();
 
 		private:
 			// Internal data
@@ -67,6 +68,7 @@
 			int8_t _M;
 			int16_t _Y;
 			uint32_t _ts;
+			int8_t _dow;
 	};
 
 #endif

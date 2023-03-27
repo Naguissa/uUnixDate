@@ -42,7 +42,8 @@ void setup() {
 	Serial.print(dateA.minute());
 	Serial.print(':');
 	Serial.print(dateA.second());
-
+	Serial.print(" - DOW: ");
+	Serial.print(dateA.dow());
 	Serial.print(" --- ");
 	Serial.println(dateA.timestamp());
 
@@ -66,6 +67,9 @@ void setup() {
 	Serial.print(':');
 	Serial.print(dateB.second());
 
+	Serial.print(" - DOW: ");
+	Serial.print(dateB.dow());
+
 	Serial.print(" --- ");
 	Serial.println(dateB.timestamp());
 
@@ -88,6 +92,9 @@ void setup() {
 	Serial.print(dateC.minute());
 	Serial.print(':');
 	Serial.print(dateC.second());
+
+	Serial.print(" - DOW: ");
+	Serial.print(dateC.dow());
 
 	Serial.print(" --- ");
 	Serial.println(dateC.timestamp());
@@ -113,6 +120,9 @@ void setup() {
 	Serial.print(':');
 	Serial.print(dateD.second());
 
+	Serial.print(" - DOW: ");
+	Serial.print(dateD.dow());
+
 	Serial.print(" --- ");
 	Serial.println(dateD.timestamp());
 
@@ -136,6 +146,9 @@ void setup() {
 	Serial.print(dateE.minute());
 	Serial.print(':');
 	Serial.print(dateE.second());
+
+	Serial.print(" - DOW: ");
+	Serial.print(dateE.dow());
 
 	Serial.print(" --- ");
 	Serial.println(dateE.timestamp());

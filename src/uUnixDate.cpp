@@ -12,7 +12,7 @@
  * @see <a href="https://github.com/Naguissa/uUnixDate">https://github.com/Naguissa/uUnixDate</a>
  * @see <a href="https://www.foroelectro.net/librerias-arduino-ide-f29/rtclib-arduino-libreria-simple-y-eficaz-para-rtc-y-t95.html">https://www.foroelectro.net/librerias-arduino-ide-f29/rtclib-arduino-libreria-simple-y-eficaz-para-rtc-y-t95.html</a>
  * @see <a href="mailto:naguissa@foroelectro.net">naguissa@foroelectro.net</a>
- * @version 1.0.0
+ * @version 1.1.0
  */
 
 #include "uUnixDate.h"
@@ -30,6 +30,7 @@ uUnixDate::uUnixDate() {
     _M = 1;
     _Y = 2000;
     _ts = UUNIXDATE_BASE;
+    _dow = 6;
 }
 
 
@@ -63,6 +64,7 @@ uUnixDate::uUnixDate(const int16_t Y, const int8_t M, const int8_t D, const int8
  * @param ts Unix timestamp to set date
  */
 void uUnixDate::setTimestamp(const uint32_t ts) {
+    _dow = ((ts / 86400) + 4) % 7;
     _ts = ts;
     uint32_t t = ts - UUNIXDATE_BASE; // bring to 2000 timestamp from 1970
     _s = t % 60;
@@ -129,6 +131,8 @@ void uUnixDate::setDate(const int16_t Y, const int8_t M, const int8_t D, const i
         days += (365 + UUNIXDATE_ISLEAP(i));
     }
     _ts = UUNIXDATE_BASE + (((days * 24 + h) * 60 + m) * 60) + s;
+    _dow = ((_ts / 86400) + 4) % 7;
+
 
 }
 
@@ -186,4 +190,12 @@ int16_t uUnixDate::year() {
  */
 uint32_t uUnixDate::timestamp() {
     return _ts;
+}
+
+
+/**
+ * \brief Getter - Gets DayOfWeek of stored date. 0-Sunday to 6-Saturday
+ */
+int8_t uUnixDate::dow() {
+    return _dow;
 }
