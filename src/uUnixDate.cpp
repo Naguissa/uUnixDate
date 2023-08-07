@@ -12,7 +12,7 @@
  * @see <a href="https://github.com/Naguissa/uUnixDate">https://github.com/Naguissa/uUnixDate</a>
  * @see <a href="https://www.foroelectro.net/librerias-arduino-ide-f29/rtclib-arduino-libreria-simple-y-eficaz-para-rtc-y-t95.html">https://www.foroelectro.net/librerias-arduino-ide-f29/rtclib-arduino-libreria-simple-y-eficaz-para-rtc-y-t95.html</a>
  * @see <a href="mailto:naguissa@foroelectro.net">naguissa@foroelectro.net</a>
- * @version 1.1.0
+ * @version 1.2.0
  */
 
 #include "uUnixDate.h"
@@ -88,7 +88,7 @@ void uUnixDate::setTimestamp(const uint32_t ts) {
         int8_t daysPerMonth = 31;
         if (_M == 2)  {
             daysPerMonth = leap ? 29 : 28;
-        } else if (_M == 4 || _M== 6 || _M == 9 || _M ==11) {
+        } else if (_M == 4 || _M == 6 || _M == 9 || _M == 11) {
             daysPerMonth = 30;
         }
         if (days < daysPerMonth) {
@@ -121,7 +121,7 @@ void uUnixDate::setDate(const int16_t Y, const int8_t M, const int8_t D, const i
     for (i = 1; i < M; ++i) {
         if (i == 2)  {
             days += (28 + UUNIXDATE_ISLEAP(Y));
-        } else if (i == 4 || i== 6 || i == 9 || i ==11) {
+        } else if (i == 4 || i == 6 || i == 9 || i == 11) {
             days += 30;
         } else {
             days += 31;
